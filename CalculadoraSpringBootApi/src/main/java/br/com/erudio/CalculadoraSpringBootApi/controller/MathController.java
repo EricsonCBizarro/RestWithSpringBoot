@@ -1,4 +1,4 @@
-package br.com.erudio.CalculadoraSpringBootApi;
+package br.com.erudio.CalculadoraSpringBootApi.controller;
 
 import br.com.erudio.CalculadoraSpringBootApi.converters.NumberConverter;
 import br.com.erudio.CalculadoraSpringBootApi.exception.UnsupportedMathOperationException;
@@ -15,7 +15,7 @@ class MathController {
 
     @RequestMapping(value = "/sum/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double sum(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-        if (!NumberConverter.isNumeric(numberOne) || NumberConverter.isNumeric(numberTwo)) {
+        if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
@@ -24,7 +24,7 @@ class MathController {
 
     @RequestMapping(value = "/subtraction/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double subtraction(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-        if (!NumberConverter.isNumeric(numberOne) || NumberConverter.isNumeric(numberTwo)) {
+        if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
@@ -33,7 +33,7 @@ class MathController {
 
     @RequestMapping(value = "/multiplication/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double multiplication(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-        if (!NumberConverter.isNumeric(numberOne) || NumberConverter.isNumeric(numberTwo)) {
+        if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
@@ -42,7 +42,7 @@ class MathController {
 
     @RequestMapping(value = "/division/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double division(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-        if (!NumberConverter.isNumeric(numberOne) || NumberConverter.isNumeric(numberTwo)) {
+        if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
@@ -60,7 +60,7 @@ class MathController {
 
     @RequestMapping(value = "/mean/{numberOne}/{numberTwo}", method = RequestMethod.GET)
     public Double mean(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
-        if (!NumberConverter.isNumeric(numberOne) || NumberConverter.isNumeric(numberTwo)) {
+        if (!NumberConverter.isNumeric(numberOne) || !NumberConverter.isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
