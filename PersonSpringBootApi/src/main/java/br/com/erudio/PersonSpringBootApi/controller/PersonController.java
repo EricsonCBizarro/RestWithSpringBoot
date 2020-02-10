@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/person")
 class PersonController {
@@ -17,7 +19,14 @@ class PersonController {
     @Autowired
     private PersonServices services;
 
-    private SimpleMath math = new SimpleMath();
+    @RequestMapping
+            (
+                    method = RequestMethod.GET,
+                    produces = MediaType.APPLICATION_JSON_VALUE
+            )
+    public List<Person> findAll() {
+        return services.findAll();
+    }
 
     @RequestMapping
             (
@@ -28,4 +37,6 @@ class PersonController {
     public Person findById(@PathVariable("id") String id) {
         return services.findById(id);
     }
+
+
 }
