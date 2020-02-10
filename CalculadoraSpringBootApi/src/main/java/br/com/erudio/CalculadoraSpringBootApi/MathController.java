@@ -50,16 +50,16 @@ class MathController {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
-        return Math.sqrt(convertToDouble(numberOne));
+        return (Double) Math.sqrt(convertToDouble(numberOne));
     }
 
-    @RequestMapping(value = "/average/{numberOne}/{numberTwo}/{numberThree}", method = RequestMethod.GET)
-    public Double average(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo, @PathVariable("numberThree") String numberThree) throws Exception {
-        if (!isNumeric(numberOne) || !isNumeric(numberTwo) || !isNumeric(numberThree)) {
+    @RequestMapping(value = "/mean/{numberOne}/{numberTwo}", method = RequestMethod.GET)
+    public Double average(@PathVariable("numberOne") String numberOne, @PathVariable("numberTwo") String numberTwo) throws Exception {
+        if (!isNumeric(numberOne) || !isNumeric(numberTwo)) {
             throw new UnsupportedMathOperationException("Please set a numeric value!");
         }
 
-        return (convertToDouble(numberOne) + convertToDouble(numberTwo) + convertToDouble(numberThree)) / 3;
+        return (convertToDouble(numberOne) + convertToDouble(numberTwo)) / 2;
     }
 
     private Double convertToDouble(String strNumber) {
